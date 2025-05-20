@@ -1,16 +1,13 @@
 import json
-
 def convert_to_json(data):
     structured_data = []
     
-    # Loop through each category in the data
     for category_name, category_entries in data.items():
         category = {
             "category": category_name,
             "entries": []
         }
         
-        # Loop through each entry in the category
         for entry_number, entry in enumerate(category_entries, start=1):
             entry_data = {
                 "entry": entry_number,
@@ -23,7 +20,6 @@ def convert_to_json(data):
     
     return json.dumps(structured_data, indent=2)
 
-# Example free-form input data
 data = {
     "Health & Well-being": [
         {
@@ -68,9 +64,5 @@ data = {
         }
     ]
 }
-
-# Convert the data to the desired JSON format
 json_output = convert_to_json(data)
-
-# Print the structured JSON
 print(json_output)
